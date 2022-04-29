@@ -5,7 +5,7 @@ To run application and generate SWC-100 results:
 Results are currently output to results.json
 
 
-In order to add functionality for all SWC-100 vulnerabilities, new files just need to be added to local-web3-audit/copy_files/tests
+In order to add functionality for all SWC-100 vulnerabilities, new files just need to be added to $/copy_files/tests
 
 
 
