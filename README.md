@@ -15,7 +15,6 @@ In order to add functionality for all SWC-100 vulnerabilities, new files just ne
       - use a function to create a deploy script with the Contract name in it
       - update the Contract name in config
       - run deploy command from brownie console
-
    ##### need a method of creating tests that are customizable for each contract beyond tests that work for all projects universally (this is a big one)
 
    ##### contracts need to be able to be processed either as a url to a raw file, a url to a github repo, or a local directory
