@@ -13,7 +13,8 @@ The tests in the test_SWC_101 file are example tests just to show the general st
 
 
 ### Fixes/Features:
-   ##### deploy.py and test_'s needs to dynamically find out the name of the contract in order to deploy it. (this can be done in a few ways) :
+   ##### deploy.py and test_'s needs to dynamically find out the name of the contract in order to deploy it.
+   ##### this can be done in a few ways :
 
       - use a function to make the deploy script with the Contract name in it
 
