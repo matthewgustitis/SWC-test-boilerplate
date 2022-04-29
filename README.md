@@ -10,10 +10,9 @@ In order to add functionality for all SWC-100 vulnerabilities, new files just ne
 
 
 ### Fixes/Features:
-   ##### deploy.py and test_'s needs to dynamically find out the name of the contract in order to deploy it.
-   ##### this can be done in a few ways :
+   ##### deploy.py and test_'s need to dynamically find out the name of the contract in order to deploy it. this can be done in a few ways :
 
-      - use a function to make the deploy script with the Contract name in it
+      - use a function to create a deploy script with the Contract name in it
 
       - update the Contract name in config
 
