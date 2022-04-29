@@ -2,7 +2,7 @@ To run application and generate SWC-100 results:
    $ python SWC-100-audit.py
 
 
-Results are currently output to results.txt
+Results are currently output to results.json
 
 
 In order to add functionality for all SWC-100 vulnerabilities, new files just need to be added to local-web3-audit/copy_files/tests
