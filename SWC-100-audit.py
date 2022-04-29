@@ -6,9 +6,7 @@ from config import (
     RESULTS_FILE_NAME,
     TEST_FILE_NAME,
 )
-import os
-import shutil
-import datetime
+import os, shutil, json, datetime
 
 
 # create and enter brownie environment
@@ -38,16 +36,33 @@ if os.path.isdir("tests"):
     shutil.copytree("../copy_files/tests", "tests")
 
 
-# run SWC-100 tests and print results
-with open(f"../{RESULTS_FILE_NAME}", "w") as f:
-    f.write("SWC AUDIT TEST RESULTS: \n\n")
-    f.write(f"{datetime.datetime.now()} \n\n\n")
+# run SWC-100 tests and load result object
+os.system(f"pytest --json-report -v tests/")
+pytest_data = None
+with open(".report.json", "r") as f:
+    pytest_data = json.load(f)
 
-    # THIS TO BE CHANGED TO CREATE TESTRESULTOBJECTS THAT CAN BE PUSHED TO API OR WHATEVER
-    for filename in os.listdir("tests"):
-        f.write(f"TEST: {filename}\n")
-        f.write("LIST OF ERRORS AND OVERALL STATUS FROM THIS TEST\n\n")
-        os.system(f"pytest tests/{filename}")
+
+# create and modify json object to output to results file
+results_object = {
+    "Title": "SWC-100 Test Results",
+    "Date": f"{datetime.datetime.now()}",
+    "Failed_tests": [],
+}
+
+for test in pytest_data["tests"]:
+    if test["outcome"] == "failed":
+        failure_details = {
+            "Test_name": test["nodeid"],
+            "Error": test["metadata"]["error_message"],
+        }
+        results_object["Failed_tests"].append(failure_details)
+
+
+# output SWC-100 test results
+json_object = json.dumps(results_object, indent=4)
+with open(RESULTS_FILE_NAME, "w") as outfile:
+    outfile.write(json_object)
 
 
 # tidy up

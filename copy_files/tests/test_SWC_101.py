@@ -1,18 +1,21 @@
+""" tests for SWC 101 """
+
 from brownie import SimpleStorage, accounts
 
 
-def test_deploy():
+def test_SWC_101_1(json_metadata):
+    json_metadata["error_message"] = "Initial Value incorrect"
+    account = accounts[0]
+    contract = SimpleStorage.deploy({"from": account})
+    starting_value = contract.retrieve()
+    expected = 1
+    assert starting_value == expected
+
+
+def test_SWC_101_2(json_metadata):
+    json_metadata["error_message"] = "Error: this is the other error description"
     account = accounts[0]
     contract = SimpleStorage.deploy({"from": account})
     starting_value = contract.retrieve()
     expected = 0
-    assert starting_value == expected, "Error: Initial value incorrect"
-
-
-def test_updating_storage():
-    account = accounts[0]
-    contract = SimpleStorage.deploy({"from": account})
-    expected = 15
-    txn = contract.store(expected, {"from": account})
-    txn.wait(1)
-    assert expected == contract.retrieve(), "Error: updating value failed"
+    assert starting_value == expected

@@ -1,0 +1,14 @@
+{
+    "Title": "SWC-100 Test Results",
+    "Date": "2022-04-29 15:38:07.152737",
+    "Failed_tests": [
+        {
+            "Test_name": "tests/test_swc_101.py::test_SWC_101_1",
+            "Error": "Initial Value incorrect"
+        },
+        {
+            "Test_name": "tests/test_test.py::test_deploy",
+            "Error": "Contract failed to deploy"
+        }
+    ]
+}
