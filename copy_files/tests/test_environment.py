@@ -1,4 +1,4 @@
-""" test file for general deployment and environment configuration"""
+""" tests for general deployment and environment configuration"""
 
 from brownie import SimpleStorage, accounts
 

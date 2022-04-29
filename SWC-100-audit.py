@@ -4,7 +4,6 @@ from config import (
     DEPLOY_FILE_NAME,
     BROWNIE_CONFIG_FILE_NAME,
     RESULTS_FILE_NAME,
-    TEST_FILE_NAME,
 )
 import os, shutil, json, datetime
 

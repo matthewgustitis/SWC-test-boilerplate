@@ -1,3 +1,5 @@
+""" deploy contract onto chosen test chain """
+
 from brownie import accounts, SimpleStorage
 
 

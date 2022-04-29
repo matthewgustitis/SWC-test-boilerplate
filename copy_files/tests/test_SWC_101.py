@@ -1,4 +1,4 @@
-""" tests for SWC 101 """
+""" tests for SWC 101 vulnerabilities """
 
 from brownie import SimpleStorage, accounts
 
