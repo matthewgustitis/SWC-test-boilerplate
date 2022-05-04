@@ -1,29 +1,42 @@
 """ tests for SWC 108 vulnerabilities (State Variable Default Visibility) """
+# BYTES GOES ALL THE WAY UP TO 32...
 
-from helper_functions import remove_whitespace, visibility_keywords, variable_keywords
+from brownie import accounts, SimpleStorage
+from helper_functions import remove_whitespace
 import os
 
 
 def test_SWC_108_1(json_metadata):
     json_metadata["error_message"] = "Missing state variable visibility"
+    visibility_keywords = ["public", "internal", "private"]
+    variable_keywords = [
+        "bool",
+        "address",
+        "byte",
+        "bytes1",
+        "bytes2",
+        "bytes3",
+        "int",
+        "uint",
+    ]
 
     CONTRACT_NAME = os.listdir("./contracts")[0]
     in_contract = False
     open_brackets = 0
 
-    # iterate through lines in contract
     with open(f"contracts/{CONTRACT_NAME}", "r") as f:
         lines = remove_whitespace(f)
 
-        # split line into word tokens
         for line in lines:
             words = line.split()
+            print(words)
+            assert False
 
             if words[0] == "contract":
                 in_contract = True
                 open_brackets = 1
 
-            # determine if inside a function
+            # when open_brackets is 1, check for variables. when it's 0, in_contract = false
             if in_contract:
                 if "{" in words[-1]:
                     open_brackets += 1
@@ -34,9 +47,7 @@ def test_SWC_108_1(json_metadata):
                 if open_brackets == 0:
                     break
 
-                # if inside contract but outside functions
+                # check for visibility keywords for state variables
                 if open_brackets == 1:
-                    # if state variable
-                    if [ele for ele in variable_keywords if (ele in words[0])]:
-                        # assert visibility is declared
-                        assert any(item in words for item in visibility_keywords)
+                    if words[0] in variable_keywords:
+                        assert words[1] in visibility_keywords

@@ -64,7 +64,7 @@ json_object = json.dumps(results_object, indent=4)
 with open(RESULTS_FILE_NAME, "w") as outfile:
     outfile.write(json_object)
 
-
+""" 
 # tidy up
 os.chdir("..")
 if os.path.isdir("brownie-folder"):
@@ -73,3 +73,4 @@ if os.path.isdir("__pycache__"):
     shutil.rmtree("__pycache__")
 if os.path.isdir(".pytest_cache"):
     shutil.rmtree(".pytest_cache")
+ """
