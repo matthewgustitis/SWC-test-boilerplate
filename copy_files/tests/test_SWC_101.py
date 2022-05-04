@@ -1,6 +1,7 @@
 """ tests for SWC 101 vulnerabilities """
 
-from brownie import SimpleStorage, accounts
+
+from brownie import accounts, SimpleStorage
 
 
 def test_SWC_101_1(json_metadata):

@@ -1,10 +1,5 @@
 {
     "Title": "SWC-100 Test Results",
-    "Date": "2022-04-29 15:45:10.718165",
-    "Failed_tests": [
-        {
-            "Test_name": "tests/test_swc_101.py::test_SWC_101_1",
-            "Error": "Initial Value incorrect"
-        }
-    ]
+    "Date": "2022-05-04 09:03:02.787243",
+    "Failed_tests": []
 }

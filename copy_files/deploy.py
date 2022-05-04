@@ -1,5 +1,5 @@
 """ deploy contract onto chosen test chain """
-
+# don't need this file at all
 from brownie import accounts, SimpleStorage
 
 
