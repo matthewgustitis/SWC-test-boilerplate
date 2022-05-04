@@ -5,7 +5,7 @@ uint poop = 1;
 contract SimpleStorage {
     uint256 public favoriteNumber;
     mapping(uint => uint) internal someMapping;
-    string internal someString;
+    
     bool private privyWivy;
 
     struct People {
@@ -26,8 +26,10 @@ contract SimpleStorage {
 
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
         people.push(People(_favoriteNumber, _name));
-        nameToFavoriteNumber[_name] = _favoriteNumber;
+        nameToFavoriteNumber[_name] = _favoriteNumber;\
+        string internal someString;
     }
+    string internal someString;
 }
 
 function someOtherShit() {
