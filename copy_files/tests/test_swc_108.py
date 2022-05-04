@@ -18,14 +18,14 @@ def test_SWC_108_1(json_metadata):
         # split line into word tokens
         for line in lines:
             words = line.split()
+            print("*************")
 
             if words[0] == "contract":
                 in_contract = True
-                open_brackets = 1
 
+            print(f"Open Brackets: {open_brackets}")
             # determine if inside a function
             if in_contract:
-                print("*************")
                 print(words)
                 if "{" in words[-1]:
                     open_brackets += 1
@@ -41,5 +41,5 @@ def test_SWC_108_1(json_metadata):
                     # if state variable
                     if [ele for ele in variable_keywords if (ele in words[0])]:
                         # assert visibility is declared
-                        assert False
-                        # assert any(item in words for item in visibility_keywords)
+                        print(f"if ele:")
+                        assert any(item in words for item in visibility_keywords)

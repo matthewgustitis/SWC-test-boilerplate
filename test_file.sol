@@ -3,7 +3,7 @@ pragma solidity >=0.6.0 <0.9.0;
 uint poop = 1;
 
 contract SimpleStorage {
-    uint256 favoriteNumber;
+    uint256 public favoriteNumber;
 
     struct People {
         uint256 favoriteNumber;
