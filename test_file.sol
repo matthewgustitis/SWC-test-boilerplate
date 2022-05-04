@@ -5,7 +5,7 @@ uint poop = 1;
 contract SimpleStorage {
     uint256 public favoriteNumber;
     mapping(uint => uint) internal someMapping;
-    string someString
+    string internal someString
     bool private privyWivy
 
     struct People {

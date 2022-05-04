@@ -11,6 +11,7 @@ visibility_keywords = ["public", "internal", "private"]
 # all variable keywords
 variable_keywords = [
     "bool",
+    "string",
     "address",
     "enum",
     "mapping",

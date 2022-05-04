@@ -4,7 +4,9 @@ pragma solidity >=0.6.0 <0.9.0;
  
  contract SimpleStorage {
      uint256 public favoriteNumber;
-     mapping(uint => uint) someMapping;
+     mapping(uint => uint) internal someMapping;
+     string someString
+     bool private privyWivy
  
      struct People {
          uint256 favoriteNumber;
