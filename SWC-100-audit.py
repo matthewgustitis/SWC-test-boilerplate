@@ -18,7 +18,8 @@ os.system("brownie init")
 
 
 # create contract in contracts folder
-url = "https://raw.githubusercontent.com/PatrickAlphaC/brownie_simple_storage/main/contracts/SimpleStorage.sol"
+# url = "https://raw.githubusercontent.com/PatrickAlphaC/brownie_simple_storage/main/contracts/SimpleStorage.sol"
+url = "https://raw.githubusercontent.com/matthewgustitis/SWC-test-boilerplate/main/test_file.sol"
 file = urllib.request.urlopen(url)
 CONTRACT_FILE_NAME = "contracts/" + url[url.rindex("/") + 1 :]
 file_text = comment_remover(file)
@@ -37,7 +38,7 @@ if os.path.isdir("tests"):
 
 
 # run SWC-100 tests and load result object
-os.system(f"pytest --json-report -v tests/")
+os.system(f"pytest -rP --json-report -v tests/")
 pytest_data = None
 with open(".report.json", "r") as f:
     pytest_data = json.load(f)
@@ -64,7 +65,7 @@ json_object = json.dumps(results_object, indent=4)
 with open(RESULTS_FILE_NAME, "w") as outfile:
     outfile.write(json_object)
 
-""" 
+
 # tidy up
 os.chdir("..")
 if os.path.isdir("brownie-folder"):
@@ -73,4 +74,3 @@ if os.path.isdir("__pycache__"):
     shutil.rmtree("__pycache__")
 if os.path.isdir(".pytest_cache"):
     shutil.rmtree(".pytest_cache")
- """

@@ -1,10 +1,5 @@
 {
     "Title": "SWC-100 Test Results",
-    "Date": "2022-05-04 11:29:19.980587",
-    "Failed_tests": [
-        {
-            "Test_name": "tests/test_swc_108.py::test_SWC_108_1",
-            "Error": "Missing state variable visibility"
-        }
-    ]
+    "Date": "2022-05-04 13:02:09.707530",
+    "Failed_tests": []
 }

@@ -1,5 +1,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
+uint poop = 1;
+
 contract SimpleStorage {
     uint256 favoriteNumber;
 
@@ -24,3 +26,9 @@ contract SimpleStorage {
         nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 }
+
+function someOtherShit() {
+   // do nothing
+}
+
+uint imNotReal = 0;

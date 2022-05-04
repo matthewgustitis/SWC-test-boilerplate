@@ -1,5 +1,5 @@
 """ tests for SWC 101 vulnerabilities """
-
+""" 
 
 from brownie import accounts, SimpleStorage
 
@@ -20,3 +20,4 @@ def test_SWC_101_2(json_metadata):
     starting_value = contract.retrieve()
     expected = 0
     assert starting_value == expected
+ """

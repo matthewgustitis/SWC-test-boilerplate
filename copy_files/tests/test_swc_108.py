@@ -25,6 +25,8 @@ def test_SWC_108_1(json_metadata):
 
             # determine if inside a function
             if in_contract:
+                print("*************")
+                print(words)
                 if "{" in words[-1]:
                     open_brackets += 1
                 if "}" in words[-1]:
@@ -39,4 +41,5 @@ def test_SWC_108_1(json_metadata):
                     # if state variable
                     if [ele for ele in variable_keywords if (ele in words[0])]:
                         # assert visibility is declared
-                        assert any(item in words for item in visibility_keywords)
+                        assert False
+                        # assert any(item in words for item in visibility_keywords)
