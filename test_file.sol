@@ -4,6 +4,7 @@ uint poop = 1;
 
 contract SimpleStorage {
     uint256 public favoriteNumber;
+    mapping(uint => uint) someMapping;
 
     struct People {
         uint256 favoriteNumber;
