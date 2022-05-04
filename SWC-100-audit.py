@@ -1,10 +1,11 @@
+""" main program to test for SWC-100 vulnerabilities """
+
 from config import (
-    DEPLOY_FILE_NAME,
     BROWNIE_CONFIG_FILE_NAME,
     RESULTS_FILE_NAME,
 )
 from helper_functions import comment_remover
-import os, shutil, json, datetime, re
+import os, shutil, json, datetime
 import urllib.request
 
 
@@ -18,8 +19,7 @@ os.system("brownie init")
 
 
 # create contract in contracts folder
-# url = "https://raw.githubusercontent.com/PatrickAlphaC/brownie_simple_storage/main/contracts/SimpleStorage.sol"
-url = "https://raw.githubusercontent.com/matthewgustitis/SWC-test-boilerplate/main/test_file.sol"
+url = "https://raw.githubusercontent.com/PatrickAlphaC/brownie_simple_storage/main/contracts/SimpleStorage.sol"
 file = urllib.request.urlopen(url)
 CONTRACT_FILE_NAME = "contracts/" + url[url.rindex("/") + 1 :]
 file_text = comment_remover(file)
@@ -30,8 +30,7 @@ with open(CONTRACT_FILE_NAME, "w") as f:
 
 
 # insert necessary files into brownie-folder
-# shutil.copyfile("../copy_files/deploy.py", DEPLOY_FILE_NAME)
-# shutil.copyfile("../copy_files/brownie-config.yaml", BROWNIE_CONFIG_FILE_NAME)
+shutil.copyfile("../copy_files/brownie-config.yaml", BROWNIE_CONFIG_FILE_NAME)
 if os.path.isdir("tests"):
     shutil.rmtree("tests")
     shutil.copytree("../copy_files/tests", "tests")
@@ -65,7 +64,7 @@ json_object = json.dumps(results_object, indent=4)
 with open(RESULTS_FILE_NAME, "w") as outfile:
     outfile.write(json_object)
 
-""" 
+
 # tidy up
 os.chdir("..")
 if os.path.isdir("brownie-folder"):
@@ -74,4 +73,3 @@ if os.path.isdir("__pycache__"):
     shutil.rmtree("__pycache__")
 if os.path.isdir(".pytest_cache"):
     shutil.rmtree(".pytest_cache")
- """

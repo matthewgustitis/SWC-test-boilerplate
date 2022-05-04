@@ -1,6 +1,10 @@
 """ tests for SWC 108 vulnerabilities (State Variable Default Visibility) """
 
-from helper_functions import remove_whitespace, visibility_keywords, variable_keywords
+from helper_functions import (
+    remove_whitespace,
+    visibility_keywords,
+    variable_keywords,
+)
 import os
 
 
@@ -13,20 +17,17 @@ def test_SWC_108_1(json_metadata):
 
     # iterate through lines in contract
     with open(f"contracts/{CONTRACT_NAME}", "r") as f:
-        lines = remove_whitespace(f)
+        lines = remove_whitespace(lines)
 
         # split line into word tokens
         for line in lines:
             words = line.split()
-            print("*************")
 
             if words[0] == "contract":
                 in_contract = True
 
-            print(f"Open Brackets: {open_brackets}")
             # determine if inside a function
             if in_contract:
-                print(words)
                 if "{" in words[-1]:
                     open_brackets += 1
                 if "}" in words[-1]:
@@ -41,5 +42,4 @@ def test_SWC_108_1(json_metadata):
                     # if state variable
                     if [ele for ele in variable_keywords if (ele in words[0])]:
                         # assert visibility is declared
-                        print(f"if ele:")
                         assert any(item in words for item in visibility_keywords)
