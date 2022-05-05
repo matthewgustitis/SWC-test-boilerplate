@@ -10,7 +10,7 @@ contract SimpleStorage {
     }
 
     // This is a comment!
-    struct public People {
+    struct People {
         uint256 favoriteNumber;
         string name;
     }
