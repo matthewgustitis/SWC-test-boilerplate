@@ -1,6 +1,6 @@
 import re
 
-
+# remove Solidity comments from url file object
 def remove_comments(file):
     text = " ".join(e.decode("utf-8") for e in file)
 

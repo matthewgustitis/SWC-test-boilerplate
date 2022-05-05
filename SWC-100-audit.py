@@ -24,7 +24,7 @@ file = urllib.request.urlopen(url)
 CONTRACT_FILE_NAME = "contracts/" + url[url.rindex("/") + 1 :]
 
 file_text = remove_comments(file)
-with open(CONTRACT_FILE_NAME, "w+") as f:
+with open(CONTRACT_FILE_NAME, "w") as f:
     for line in file_text:
         f.write(line)
 
