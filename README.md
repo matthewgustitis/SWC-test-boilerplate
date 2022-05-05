@@ -1,5 +1,6 @@
 To run application and generate SWC-100 results:
    > specify url on line ~22
+   
    > $ python SWC-100-audit.py
 
 
