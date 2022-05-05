@@ -37,7 +37,7 @@ if os.path.isdir("tests"):
 
 
 # run SWC-100 tests and load result object
-os.system(f"pytest -rP --json-report -v tests/")
+os.system(f"pytest -rP --json-report -v --tb=short tests/")
 pytest_data = None
 with open(".report.json", "r") as f:
     pytest_data = json.load(f)
