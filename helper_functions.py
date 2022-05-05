@@ -1,7 +1,7 @@
 import re
 
 
-def comment_remover(file):
+def remove_comments(file):
     text = " ".join(e.decode("utf-8") for e in file)
 
     def replacer(match):

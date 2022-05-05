@@ -17,7 +17,7 @@ def test_SWC_108_1(json_metadata):
 
     # iterate through lines in contract
     with open(f"contracts/{CONTRACT_NAME}", "r") as f:
-        lines = remove_whitespace(lines)
+        lines = remove_whitespace(f)
 
         # split line into word tokens
         for line in lines:

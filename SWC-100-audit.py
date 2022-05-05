@@ -4,7 +4,7 @@ from config import (
     BROWNIE_CONFIG_FILE_NAME,
     RESULTS_FILE_NAME,
 )
-from helper_functions import comment_remover
+from helper_functions import remove_comments
 import os, shutil, json, datetime
 import urllib.request
 
@@ -19,12 +19,12 @@ os.system("brownie init")
 
 
 # create contract in contracts folder
-url = "https://raw.githubusercontent.com/PatrickAlphaC/brownie_simple_storage/main/contracts/SimpleStorage.sol"
+url = "https://raw.githubusercontent.com/PatrickAlphaC/storage_factory/main/SimpleStorage.sol"
 file = urllib.request.urlopen(url)
 CONTRACT_FILE_NAME = "contracts/" + url[url.rindex("/") + 1 :]
-file_text = comment_remover(file)
 
-with open(CONTRACT_FILE_NAME, "w") as f:
+file_text = remove_comments(file)
+with open(CONTRACT_FILE_NAME, "w+") as f:
     for line in file_text:
         f.write(line)
 
